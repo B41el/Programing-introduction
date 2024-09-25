@@ -1,0 +1,62 @@
+#include<stdio.h>
+#include<locale.h>
+#include<stdlib.h>
+#define mercurio 0.37
+#define venus 0.88
+#define marte 0.38
+#define jupiter 2.64
+#define saturno 1.15
+#define urano 1.17
+
+
+void main(){
+    setlocale (LC_ALL,"portuguese");
+
+    float terra;
+    char n;
+
+    printf("informe um peso pesado na terra: ");
+    scanf("%f", &terra);
+    fflush(stdin);
+    system("cls");
+    printf("Código dos países\n");
+    printf(" 1 para Mercúrio \n");
+    printf(" 2 para Vênus \n");
+    printf(" 3 para Marte \n");
+    printf(" 4 para Júpiter \n");
+    printf(" 5 para Saturno \n");
+    printf(" 6 para Urano \n");
+    printf("informe o código de um país: ");
+    scanf("%c",&n);
+    system("cls");
+
+    switch(n){
+    case '1':
+        terra = terra * mercurio;
+        printf("O peso digitado se torna %.1f em Mercúrio.", terra);
+        break;
+    case '2':
+        terra= terra * venus;
+        printf("O peso digitado se torna %.1f em Vênus.", terra);
+        break;
+    case '3':
+        terra= terra * marte;
+        printf("O peso digitado se torna %.1f em Marte.", terra);
+        break;
+    case '4':
+        terra= terra * jupiter;
+        printf("O peso digitado se torna %.1f em Júpiter.", terra);
+        break;
+    case '5':
+        terra= terra * saturno;
+        printf("O peso digitado se torna %.1f em Saturno.", terra);
+        break;
+    case '6':
+        terra= terra * urano;
+        printf("O peso digitado se torna %.1f em Urano.", terra);
+        break;
+    default:
+        printf("opção inválida");
+
+    }
+}
