@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <locale.h>
+#define OURO 3
+#define PRATA 2
+#define BRONZE 1
+
+
+void main() {
+   setlocale (LC_ALL,"portuguese");
+
+   int ouro1, ouro2, ouro3, prata1, prata2, prata3, bronze1, bronze2, bronze3;
+   int cod1, cod2, cod3;
+   int pp1, pp2, pp3;
+   char pais1[50], pais2[50], pais3[50];
+
+   printf("informar o nome dos 3 países: ");
+   scanf("%s %s %s",&pais1, &pais2, &pais3);
+   printf("informar quantidade de medalhas de ouro obtidas pelos 3 países respectivamente: ");
+   scanf("%d %d %d",&ouro1, &ouro2, &ouro3);
+   printf("informar quantidade de medalhas de prata obtidas pelos 3 países respectivamente: ");
+   scanf("%d %d %d",&prata1, &prata2, &prata3);
+   printf("informar quantidade de medalhas de cobre obtidas pelos 3 países respectivamente: ");
+   scanf("%d %d %d",&bronze1, &bronze2, &bronze3);
+
+   pp1 =ouro1 * OURO + prata1 * PRATA + bronze1 * BRONZE;
+   pp2 =ouro2 * OURO + prata2 * PRATA + bronze2 * BRONZE;
+   pp3 =ouro3 * OURO + prata3 * PRATA + bronze3 * BRONZE;
+
+   printf("o país %s teve pontuação de %d pontos! \n" ,pais1,pp1);
+   printf("o país %s teve pontuação de %d pontos! \n" ,pais2,pp2);
+   printf("o país %s teve pontuação de %d pontos! \n" ,pais3,pp3);
+
+   if(pp1 > pp2){
+      if(pp1>pp3){
+         printf("primeiro: %s",pais1);
+      }else{
+         printf("primeiro: %s",pais3);
+         printf("segundo: %s",pais1);
+         printf("terceiro %s", pais2);
+
+      }
+   }else if(pp2>pp3){
+      if(pp2>pp1){
+         printf("primeiro: %s",pais2);
+      }else{
+         printf("primeiro: %s",pais1);
+         printf("segundo: %s",pais2);
+         printf("terceiro %s", pais3);
+      }
+
+   }else if(pp3>pp2){
+      if(pp3>pp1){
+         printf("primeiro: %s",pais3);
+      }else{
+         printf("primeiro: %s",pais1);
+         printf("segundo: %s",pais3);
+         printf("terceiro %s", pais2);
+      }
+
+
+
+   }
+}
