@@ -1,0 +1,64 @@
+//calcula calorias
+#include <stdio.h>
+#include<locale.h>
+#include<stdlib.h>
+#define caminhada 2.9
+#define corridaCiclismo 8
+#define natacao 7
+
+float calorias(float ar, float fogo, float terra);
+void main()
+{
+   setlocale(LC_ALL, "portuguese");
+
+   char N;
+   float horas, met, peso, resultado;
+
+   printf("======================\n");
+   printf("(A) Caminhada \n");
+   printf("(B) Corrida \n");
+   printf("(C) Natação \n");
+   printf("(D) Ciclismo \n");
+   printf("======================\n");
+   printf("Escolha o tipo de exercício: ");
+   scanf("%c", &N);
+   system("cls");
+
+   printf("Agora informe o tempo de exercíco em horas: ");
+   scanf("%f",&horas);
+   system("cls");
+
+   printf("informar seu peso: ");
+   scanf("%f", &peso);
+   system("cls");
+
+   switch(N) {
+   case 'A':
+   case 'a':
+      met = caminhada;
+
+      break;
+   case 'B':
+   case 'b':
+   case 'D':
+   case 'd':
+      met = corridaCiclismo;
+
+      break;
+   case 'C':
+   case 'c':
+      met = natacao;
+
+      break;
+      default:
+      printf("operação não consta");
+   }
+
+   resultado = calorias(met,peso,horas);
+
+   printf("o número de calorias gastas é de %f",resultado);
+}
+
+float calorias(float ar, float fogo, float terra){
+   return (ar * fogo * terra) ;
+}
