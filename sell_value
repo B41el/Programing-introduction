@@ -1,0 +1,41 @@
+#include<stdio.h>
+#define LUCRO 0.3
+#define DESCONTO 1500
+float pagamentoAVista(float valor);
+float calcularValordevenda(float valor);
+int main() {
+   float valorFabrica, resultado;
+   int opcao;
+
+   printf("entre com o valor de fábrica: ");
+   scanf("%f", &valorFabrica);
+
+   printf("1) pagaento a vista");
+   printf("2) pagamento a prazo");
+
+   printf("escolha a forma de pagamento: ");
+   scanf("%d", &opcao);
+
+   switch (opcao) {
+      case 1:
+         resultado = pagamentoAVista(valorFabrica);
+         break;
+      case 2:
+         resultado = calcularValordevenda(valorFabrica);
+         break;
+      default:
+         printf("A forma de pagamento escolhida nao existe");
+         return 0;
+   }
+
+
+return 1;
+}
+
+float calcularValordevenda(float valor){
+   return valor * LUCRO + valor;
+}
+
+float pagamentoAVista(float valor){
+   return calcularValordevenda(valor) - DESCONTO;
+}
