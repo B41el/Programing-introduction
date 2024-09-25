@@ -1,0 +1,248 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<locale.h>
+#define TAM 1000
+
+char produto [TAM][50];
+float preco[TAM];
+int qtde[TAM], cont = 0;
+int max;
+
+void inserirProduto ();
+void editarProdutos();
+void editarProduto();
+void editarQuantidade();
+void editarPreco();
+void listarProdutos();
+int venderProdutos();
+int cupomFiscal();
+
+
+void main (){
+    setlocale (LC_ALL,"portuguese");
+
+    int option;
+
+    while(1){
+
+        //menu de opções para serem selecionadas.
+        printf("\n");
+        printf("----------------------------------- \n");
+        printf("\t MENU DE OPÇÕES \n");
+        printf("----------------------------------- \n");
+        printf("1- Inserir Produto\n");
+        printf("2- Atualizar Produto\n");
+        printf("3- Listar produto\n");
+        printf("4- Vender Produto\n");
+        printf("5- Imprimir Nota Fiscal\n");
+        printf("6- Sair do sistema\n");
+        printf("=================================== \n");
+        printf("Escolha uma Opção: ");
+        scanf("%d", &option);
+        system("cls");
+
+        switch(option){
+        case 1:
+            inserirProduto();
+            break;
+        case 2:
+            editarProdutos();
+            break;
+        case 3:
+            listarProdutos();
+            break;
+        case 4:
+            venderProdutos();
+            break;
+        case 5:
+            cupomFiscal();
+            break;
+        case 6:
+            printf("====================================\n");
+            printf("\t FECHANDO PROGRAMA \n");
+            printf("====================================\n");
+            exit(0);
+            break;
+        default:
+            printf("Opção Inválida, Por favor tente novamente... \n \n \n");
+        }
+    }
+}
+
+
+void inserirProduto (){
+    printf("\n");
+    printf("====================================\n");
+    printf("\t CADASTRO DE PRODUTOS\n");
+    printf("------------------------------------\n");
+
+    fflush(stdin);
+    printf("Nome do produto: ");
+    scanf("%s",&produto[cont]);
+    fflush(stdin);
+    printf("Quantidade disponível do produto: ");
+    scanf("%d", &qtde[cont]);
+    fflush(stdin);
+    printf("Preço a ser cobrado pelo produto: ");
+    scanf("%f", &preco[cont]);
+    cont++;
+    max = cont;
+    system("cls");
+}
+
+void editarProdutos(){
+    int choose;
+    int definition;
+    int edit;
+
+    printf("\n");
+    printf("=========================================\n");
+    printf("\t ATUALIZAÇÃO DE PRODUTOS\n");
+    printf("-----------------------------------------\n");
+
+    printf("\n");
+    printf("_______________________________________\n");
+    printf("\t LISTAGEM DOS PRODUTOS\n");
+    printf("_______________________________________\n");
+    printf("\n");
+    printf("|cód| Produto | Quantidade | Preço\n");
+
+    for(cont=0; cont <max; cont++)
+    {
+        printf("| %d | %s  \t%d  \tR$%.2f  \n",cont +1,produto[cont],qtde[cont],preco[cont]);
+
+    }
+    printf("\n \n");
+
+    printf("Escolha o cód do produto ao qual voçê quer editar: ");
+    scanf("%d",&choose);
+    definition = choose -1;
+
+    system("cls");
+
+    while (edit<1 || edit>5) {
+
+    printf("=======================================\n");
+    printf("Informações antigas do produto \n");
+    printf("_______________________________________\n");
+    printf("Nome do produto:%s \n",produto[definition]);
+    printf("Quantidade disponível do produto:%d \n",qtde[definition]);
+    printf("Preço a ser cobrado pelo produto:%.2f \n",preco[definition]);
+
+    printf("=========================================\n");
+    printf("1) Editar nome do produto. \t");
+    printf("2) Editar quantidade do produto.\n");
+    printf("3) Editar preço do produto. \t");
+    printf("4) Editar tudo.\n");
+    printf("5) Voltar \n");
+    printf("Opção desejada: ");
+    scanf("%d",&edit);
+    printf("\n");
+
+    switch (edit) {
+    case 1:
+        editarProduto(definition);
+        system("cls");
+        break;
+    case 2:
+        editarQuantidade (definition);
+        system("cls");
+        break;
+    case 3:
+        editarPreco (definition);
+        system("cls");
+        break;
+    case 4:
+        editarProduto(definition);
+        editarQuantidade (definition);
+        editarPreco (definition);
+        system("cls");
+        break;
+    case 5:
+        system("cls");
+        return;
+        break;
+    default:
+        system("cls");
+        printf("Opção inválida. Tente novamente!! \n");
+
+        }
+    }
+
+}
+void editarProduto (int definition){
+    printf("================================== \n");
+    fflush(stdin);
+    printf("Novo nome do produto: ");
+    scanf("%s",&produto[definition]);
+
+}
+void editarQuantidade (int definition){
+    printf("================================== \n");
+    fflush(stdin);
+    printf("Nova quantidade disponível do produto: ");
+    scanf("%d", &qtde[definition]);
+}
+void editarPreco (int definition){
+    printf("================================== \n");
+    fflush(stdin);
+    printf("Novo preço a ser cobrado pelo produto: ");
+    scanf("%f", &preco[definition]);
+}
+
+void listarProdutos(){
+
+    int choose;
+    printf("\n");
+    printf("=======================================\n");
+    printf("\t LISTAGEM DOS PRODUTOS\n");
+    printf("---------------------------------------\n");
+    printf("\n");
+    printf("|cód| Produto | Quantidade | Preço\n");
+
+    for(cont=0; cont <max; cont++){
+        printf("| %d | %s  \t%d  \tR$%.2f  \n",cont +1,produto[cont],qtde[cont],preco[cont]);
+
+    }
+    printf("\n \n");
+
+    while (1){
+
+        printf("================================================= \n");
+        printf("1) voltar ao menu inicial.\t2) Editar Produto\n");
+        printf("Escolha uma opção: ");
+        scanf("%d", &choose);
+
+        switch(choose){
+        case 1:
+            system("cls");
+            return;
+            break;
+        case 2:
+            system("cls");
+            editarProdutos();
+            return;
+            break;
+        default:
+            system("cls");
+            printf("\n \n");
+            printf("Opção Inválida, Por favor tente novamente... \n \n \n");
+        }
+    }
+}
+
+int venderProdutos()
+{
+    return 0;
+}
+
+int cupomFiscal()
+{
+    int max;
+    max = cont;
+
+    for(cont=0; cont<max; cont++)
+    {
+        printf("%s \t ", produto);
+    }
+}
