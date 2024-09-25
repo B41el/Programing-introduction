@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include<locale.h>
+#include<stdlib.h>
+void main() {
+    setlocale(LC_ALL, "portuguese");
+
+    int numero;
+    int escolha;
+
+    printf("Digite um número: ");
+    scanf("%d", &numero);
+
+    printf("Escolha a operação desejada:\n");
+    printf("1. Verificar se é par ou ímpar\n");
+    printf("2. Verificar se é positivo, negativo ou zero\n");
+    printf("3. Verificar se é um ano bissexto\n");
+    scanf("%d", &escolha);
+    system("cls");
+
+    switch (escolha) {
+        case 1:
+            if (numero % 2 == 0) {
+                printf("%d é um número par.\n", numero);
+            } else {
+                printf("%d é um número ímpar.\n", numero);
+            }
+            break;
+        case 2:
+            if (numero > 0) {
+                printf("%d é um número positivo.\n", numero);
+            } else if (numero < 0) {
+                printf("%d é um número negativo.\n", numero);
+            } else {
+                printf("%d é zero.\n", numero);
+            }
+            break;
+        case 3:
+            if ((numero % 400 == 0) || ((numero % 4 == 0) && (numero % 100 != 0))) {
+                printf("%d é um ano bissexto.\n", numero);
+            } else {
+                printf("%d não é um ano bissexto.\n", numero);
+            }
+            break;
+        default:
+            printf("Operação inválida.\n");
+            break;
+    }
+}
