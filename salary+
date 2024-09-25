@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <locale.h>
+#include <string.h>
+
+void main () {
+    setlocale (LC_ALL, "portuguese");
+
+    float salario, aumento, novosalario;
+    int codigo;
+
+    printf("informe o seu código de cargo: ");
+    scanf("%d", &codigo);
+
+    if (codigo < 6){
+
+    printf("informe o seu salário atual: ");
+    scanf("%f", &salario);
+
+    if(codigo == 1){
+         aumento= salario* 0.5;
+      novosalario= salario + aumento;
+      printf("olá escriturário! o valor de seu aumento com base no seu salário é R$%.2f.O novo valor de seu salário a partir de agora é R$%.2f",aumento,novosalario);
+    }else if(codigo == 2){
+         aumento= salario* 0.35;
+         novosalario= salario + aumento;
+         printf("olá secretário! o valor de seu aumento com base no seu salário é R$%.2f.O novo valor de seu salário a partir de agora é R$%.2f",aumento,novosalario);
+      }else if(codigo == 3){
+            aumento= salario* 0.20;
+            novosalario= salario + aumento;
+            printf("olá caixa! o valor de seu aumento com base no seu salário é R$%.2f.O novo valor de seu salário a partir de agora é R$%.2f",aumento,novosalario);
+         }else if(codigo == 4){
+               aumento= salario* 0.1;
+               novosalario= salario + aumento;
+               printf("olá gerente! o valor de seu aumento com base no seu salário é R$%.2f.O novo valor de seu salário a partir de agora é R$%.2f",aumento,novosalario);
+            }else if(codigo == 5){
+                  printf("olá diretor! o valor de seu salário é R$%.2f, lamentamos informar mas não há aumento para você!",salario);
+            }
+    }else{
+    printf("código de cargo inválido");
+    }
+
+}
