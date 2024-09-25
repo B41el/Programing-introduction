@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <locale.h>
+#include <string.h>
+
+void main () {
+   setlocale (LC_ALL, "portuguese");
+
+   char genero[1];
+   int idade, trabalhado;
+
+   printf("informe o seu gênero (M) ou (F): ");
+    scanf("%s", &genero);
+
+    if (strcmp (genero , "M" ) == 0){
+       printf("informe a sua idade: ");
+    scanf("%d", &idade);
+      if (idade>=65){
+         printf("informe o tempo de contribuição em anos: ");
+         scanf("%d", &trabalhado);
+         if (trabalhado>= 15){
+            printf("parabéns voçê pode se aponsetar!");
+         }else{
+            printf("me desculpe mas voçê ainda não contribuiu pelos 15 anos necessários para aposentadoria");
+         }
+      }else{
+         printf("me desculpe mas voçê ainda atingiu a idade de 65 anos necessária para aposentadoria");
+      }
+    }if (strcmp (genero , "F") == 0){
+       printf("informe a sua idade: ");
+    scanf("%d", &idade);
+      if (idade>=60){
+         printf("informe o tempo de contribuição em anos: ");
+         scanf("%d", &trabalhado);
+         if (trabalhado>= 10){
+            printf("parabéns voçê pode se aponsetar!");
+         }else{
+            printf("me desculpe mas voçê ainda não contribuiu pelos 10 anos necessários para aposentadoria");
+         }
+      }else{
+         printf("me desculpe mas voçê ainda atingiu a idade de 60 anos necessária para aposentadoria");
+      }
+   }
+
+
+
+}
