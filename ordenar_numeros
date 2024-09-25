@@ -1,0 +1,92 @@
+#include<stdio.h>
+#include<locale.h>
+
+void main(){
+   int cont;
+   int n;
+   int cres, partivo;
+   setlocale(LC_ALL,"portuguese");
+
+   printf("informar número: ");
+   scanf("%d", &n);
+
+   printf("=============\n");
+   printf("1) crescente \n");
+   printf("2) decrescente \n");
+   printf("=============\n");
+   printf("informar número: ");
+   scanf("%d", &cres);
+
+   printf("=============\n");
+   printf("1) ímpares \n");
+   printf("2) pares \n");
+   printf("3) positivos \n");
+   printf("4) negativos \n");
+   printf("=============\n");
+   printf("informar número: ");
+   scanf("%d", &partivo);
+
+   switch(cres){
+   case 1:
+      if(partivo == 1){
+      for (cont = 0 ;cont < n+1 ;cont++) {
+            if(cont % 2 != 0){
+      printf("número %d", cont);
+      printf("\n");
+      }
+      }
+   }else if(partivo == 2){
+      for (cont = 0 ;cont < n+1 ;cont++) {
+            if(cont % 2 == 0){
+      printf("número %d", cont);
+      printf("\n");
+      }
+      }
+   }else if(partivo == 3){
+      for (cont = 0 ;cont < n+1 ;cont++) {
+            if(cont >= 0){
+      printf("número %d", cont);
+      printf("\n");
+      }
+      }
+   }else if(partivo == 4){
+      for (cont = n ;cont <0 ;cont++) {
+            if(cont < 0){
+      printf("número %d", cont);
+      printf("\n");
+      }
+      }
+   }
+   break;
+   case 2:
+      if(partivo == 1){
+      for (cont = n ;cont >= 0 ;cont--) {
+            if(cont %2 != 0){
+      printf("número %d", cont);
+      printf("\n");
+            }
+      }
+   }else if(partivo == 2){
+      for (cont = n ;cont >= 0 ;cont--) {
+            if(cont %2 == 0){
+      printf("número %d", cont);
+      printf("\n");
+            }
+      }
+   }else if(partivo == 3){
+      for (cont = n ;cont >= 0 ;cont--) {
+            if(cont >= 0){
+      printf("número %d", cont);
+      printf("\n");
+            }
+      }
+   } else if(partivo == 4){
+      for (cont = 0 ;cont >=n ;cont--) {
+            if(cont < 0){
+      printf("número %d", cont);
+      printf("\n");
+            }
+      }
+   }
+   }
+}
