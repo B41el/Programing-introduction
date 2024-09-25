@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <locale.h>
+
+void main () {
+    setlocale (LC_ALL, "portuguese");
+
+    float a,b,c;
+    float soma;
+
+    printf("informe o primeiro número (a): ");
+    scanf("%f", &a);
+    printf("informe o segundo número (b): ");
+    scanf("%f", &b);
+    printf("informe o terceiro número (c): ");
+    scanf("%f", &c);
+
+    soma = a + b;
+    printf("\n");
+
+    if(soma>c){
+        printf("(%.2f) é o resultado da soma de a+b, e é Maior que C (%.2f)",soma,c);
+
+    }
+    if(soma<c){
+        printf("(%.2f) é o resultado da soma de a+b, e é Menor que C (%.2f)",soma,c);
+
+    }
+    if(soma==c){
+        printf("(%.2f) é o resultado da soma de a+b, e é Igual á C (%.2f)",soma,c);
+
+    }
+
+
+}
